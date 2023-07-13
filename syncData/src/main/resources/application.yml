@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: club
+  profiles:
+    active: dev
+#    active: prod
+    

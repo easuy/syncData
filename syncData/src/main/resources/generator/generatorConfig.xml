@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration>  
+    <!-- 引入配置文件 -->  
+    <properties resource="generator/db.properties"/>  
+    <!--
+  		targetRuntime	属性设置你生成的版本
+  			MyBatis3			豪华版
+  			MyBatis3Simple		标准版本	CRUD
+   -->
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+            <!-- JavaBean 实现 序列化 接口 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- 生成toString -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <!-- optional，旨在创建class时，对注释进行控制 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+			<!-- 是否添加数据表中字段的注释 true：是 ： false:否 -->
+			<property name="addRemarkComments" value="true"/>
+			<property name="suppressDate" value="false"/>
+		</commentGenerator>
+		<!-- 配置数据库连接 -->
+		<jdbcConnection driverClass="${jdbc.driver}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}">
+		</jdbcConnection>
+ 
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+ 
+		<!-- 指定javaBean生成的位置 -->
+		<javaModelGenerator targetPackage="com.by.generator.bean"
+			targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+ 
+		<!--指定sql映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject=".\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+ 
+		<!-- 指定dao接口生成的位置，mapper接口 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.by.generator.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+ 
+ 
+		<!-- table指定每个表的生成策略 -->
+		<table tableName="shein_sync_data" domainObjectName="SheinSyncData"></table>
+		
+
+	</context> 
+</generatorConfiguration>  

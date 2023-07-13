@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.by.generator.dao.cpjcdxmdMapper">
+  <resultMap id="BaseResultMap" type="com.by.generator.bean.cpjcdxmd">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dh" jdbcType="NVARCHAR" property="dh" />
+    <result column="bpbh" jdbcType="NVARCHAR" property="bpbh" />
+    <result column="ysbh" jdbcType="NVARCHAR" property="ysbh" />
+    <result column="gh" jdbcType="NVARCHAR" property="gh" />
+    <result column="zl" jdbcType="NUMERIC" property="zl" />
+    <result column="xszl" jdbcType="NUMERIC" property="xszl" />
+    <result column="sc" jdbcType="BIT" property="sc" />
+    <result column="cc" jdbcType="BIT" property="cc" />
+    <result column="No" jdbcType="INTEGER" property="no" />
+    <result column="Tm" jdbcType="NVARCHAR" property="tm" />
+    <result column="cg" jdbcType="NVARCHAR" property="cg" />
+    <result column="cw" jdbcType="NVARCHAR" property="cw" />
+    <result column="scdh" jdbcType="NVARCHAR" property="scdh" />
+    <result column="scrq" jdbcType="TIMESTAMP" property="scrq" />
+    <result column="yn" jdbcType="BIT" property="yn" />
+    <result column="pd" jdbcType="BIT" property="pd" />
+    <result column="pdrq" jdbcType="TIMESTAMP" property="pdrq" />
+    <result column="pdrm" jdbcType="NVARCHAR" property="pdrm" />
+    <result column="Inrq" jdbcType="TIMESTAMP" property="inrq" />
+    <result column="xsdh" jdbcType="NVARCHAR" property="xsdh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dh, bpbh, ysbh, gh, zl, xszl, sc, cc, No, Tm, cg, cw, scdh, scrq, yn, pd, pdrq, 
+    pdrm, Inrq, xsdh
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Cpjcdxmd
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Cpjcdxmd
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.by.generator.bean.cpjcdxmd">
+    insert into Cpjcdxmd (id, dh, bpbh, 
+      ysbh, gh, zl, xszl, 
+      sc, cc, No, Tm, 
+      cg, cw, scdh, scrq, 
+      yn, pd, pdrq, pdrm, 
+      Inrq, xsdh)
+    values (#{id,jdbcType=INTEGER}, #{dh,jdbcType=NVARCHAR}, #{bpbh,jdbcType=NVARCHAR}, 
+      #{ysbh,jdbcType=NVARCHAR}, #{gh,jdbcType=NVARCHAR}, #{zl,jdbcType=NUMERIC}, #{xszl,jdbcType=NUMERIC}, 
+      #{sc,jdbcType=BIT}, #{cc,jdbcType=BIT}, #{no,jdbcType=INTEGER}, #{tm,jdbcType=NVARCHAR}, 
+      #{cg,jdbcType=NVARCHAR}, #{cw,jdbcType=NVARCHAR}, #{scdh,jdbcType=NVARCHAR}, #{scrq,jdbcType=TIMESTAMP}, 
+      #{yn,jdbcType=BIT}, #{pd,jdbcType=BIT}, #{pdrq,jdbcType=TIMESTAMP}, #{pdrm,jdbcType=NVARCHAR}, 
+      #{inrq,jdbcType=TIMESTAMP}, #{xsdh,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.by.generator.bean.cpjcdxmd">
+    insert into Cpjcdxmd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dh != null">
+        dh,
+      </if>
+      <if test="bpbh != null">
+        bpbh,
+      </if>
+      <if test="ysbh != null">
+        ysbh,
+      </if>
+      <if test="gh != null">
+        gh,
+      </if>
+      <if test="zl != null">
+        zl,
+      </if>
+      <if test="xszl != null">
+        xszl,
+      </if>
+      <if test="sc != null">
+        sc,
+      </if>
+      <if test="cc != null">
+        cc,
+      </if>
+      <if test="no != null">
+        No,
+      </if>
+      <if test="tm != null">
+        Tm,
+      </if>
+      <if test="cg != null">
+        cg,
+      </if>
+      <if test="cw != null">
+        cw,
+      </if>
+      <if test="scdh != null">
+        scdh,
+      </if>
+      <if test="scrq != null">
+        scrq,
+      </if>
+      <if test="yn != null">
+        yn,
+      </if>
+      <if test="pd != null">
+        pd,
+      </if>
+      <if test="pdrq != null">
+        pdrq,
+      </if>
+      <if test="pdrm != null">
+        pdrm,
+      </if>
+      <if test="inrq != null">
+        Inrq,
+      </if>
+      <if test="xsdh != null">
+        xsdh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dh != null">
+        #{dh,jdbcType=NVARCHAR},
+      </if>
+      <if test="bpbh != null">
+        #{bpbh,jdbcType=NVARCHAR},
+      </if>
+      <if test="ysbh != null">
+        #{ysbh,jdbcType=NVARCHAR},
+      </if>
+      <if test="gh != null">
+        #{gh,jdbcType=NVARCHAR},
+      </if>
+      <if test="zl != null">
+        #{zl,jdbcType=NUMERIC},
+      </if>
+      <if test="xszl != null">
+        #{xszl,jdbcType=NUMERIC},
+      </if>
+      <if test="sc != null">
+        #{sc,jdbcType=BIT},
+      </if>
+      <if test="cc != null">
+        #{cc,jdbcType=BIT},
+      </if>
+      <if test="no != null">
+        #{no,jdbcType=INTEGER},
+      </if>
+      <if test="tm != null">
+        #{tm,jdbcType=NVARCHAR},
+      </if>
+      <if test="cg != null">
+        #{cg,jdbcType=NVARCHAR},
+      </if>
+      <if test="cw != null">
+        #{cw,jdbcType=NVARCHAR},
+      </if>
+      <if test="scdh != null">
+        #{scdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="scrq != null">
+        #{scrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yn != null">
+        #{yn,jdbcType=BIT},
+      </if>
+      <if test="pd != null">
+        #{pd,jdbcType=BIT},
+      </if>
+      <if test="pdrq != null">
+        #{pdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pdrm != null">
+        #{pdrm,jdbcType=NVARCHAR},
+      </if>
+      <if test="inrq != null">
+        #{inrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xsdh != null">
+        #{xsdh,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.by.generator.bean.cpjcdxmd">
+    update Cpjcdxmd
+    <set>
+      <if test="dh != null">
+        dh = #{dh,jdbcType=NVARCHAR},
+      </if>
+      <if test="bpbh != null">
+        bpbh = #{bpbh,jdbcType=NVARCHAR},
+      </if>
+      <if test="ysbh != null">
+        ysbh = #{ysbh,jdbcType=NVARCHAR},
+      </if>
+      <if test="gh != null">
+        gh = #{gh,jdbcType=NVARCHAR},
+      </if>
+      <if test="zl != null">
+        zl = #{zl,jdbcType=NUMERIC},
+      </if>
+      <if test="xszl != null">
+        xszl = #{xszl,jdbcType=NUMERIC},
+      </if>
+      <if test="sc != null">
+        sc = #{sc,jdbcType=BIT},
+      </if>
+      <if test="cc != null">
+        cc = #{cc,jdbcType=BIT},
+      </if>
+      <if test="no != null">
+        No = #{no,jdbcType=INTEGER},
+      </if>
+      <if test="tm != null">
+        Tm = #{tm,jdbcType=NVARCHAR},
+      </if>
+      <if test="cg != null">
+        cg = #{cg,jdbcType=NVARCHAR},
+      </if>
+      <if test="cw != null">
+        cw = #{cw,jdbcType=NVARCHAR},
+      </if>
+      <if test="scdh != null">
+        scdh = #{scdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="scrq != null">
+        scrq = #{scrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yn != null">
+        yn = #{yn,jdbcType=BIT},
+      </if>
+      <if test="pd != null">
+        pd = #{pd,jdbcType=BIT},
+      </if>
+      <if test="pdrq != null">
+        pdrq = #{pdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pdrm != null">
+        pdrm = #{pdrm,jdbcType=NVARCHAR},
+      </if>
+      <if test="inrq != null">
+        Inrq = #{inrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xsdh != null">
+        xsdh = #{xsdh,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.by.generator.bean.cpjcdxmd">
+    update Cpjcdxmd
+    set dh = #{dh,jdbcType=NVARCHAR},
+      bpbh = #{bpbh,jdbcType=NVARCHAR},
+      ysbh = #{ysbh,jdbcType=NVARCHAR},
+      gh = #{gh,jdbcType=NVARCHAR},
+      zl = #{zl,jdbcType=NUMERIC},
+      xszl = #{xszl,jdbcType=NUMERIC},
+      sc = #{sc,jdbcType=BIT},
+      cc = #{cc,jdbcType=BIT},
+      No = #{no,jdbcType=INTEGER},
+      Tm = #{tm,jdbcType=NVARCHAR},
+      cg = #{cg,jdbcType=NVARCHAR},
+      cw = #{cw,jdbcType=NVARCHAR},
+      scdh = #{scdh,jdbcType=NVARCHAR},
+      scrq = #{scrq,jdbcType=TIMESTAMP},
+      yn = #{yn,jdbcType=BIT},
+      pd = #{pd,jdbcType=BIT},
+      pdrq = #{pdrq,jdbcType=TIMESTAMP},
+      pdrm = #{pdrm,jdbcType=NVARCHAR},
+      Inrq = #{inrq,jdbcType=TIMESTAMP},
+      xsdh = #{xsdh,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

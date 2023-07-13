@@ -1,0 +1,53 @@
+server:
+  port: 8866
+spring:
+  datasource:
+    druid:
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      minIdle: 5
+      initialSize: 10
+      maxWait: 60000
+      filters: stat,wall,slf4j
+      poolPreparedStatements: true
+      StatViewServlet:
+        resetEnable: false
+        loginUsername: admin
+        loginPassword: 12345
+        urlPattern: /druid/*
+        enabled: true
+      url: jdbc:sqlserver://39.108.157.60:9090;DatabaseName=ThssErp
+      maxPoolPreparedStatementPerConnectionSize: 20
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      maxActive: 20
+      username: th
+      password: th123456789
+    mvc:
+        static-path-pattern: /**
+    servlet:
+        max-file-size: 100MB
+        max-request-size: 100MB
+        enabled: true
+
+sheinDevUrl: https://sop-sit01.sheincorp.cn
+sheinDevUrl2: https://sop-test01.sheincorp.cn
+sheinProdUrl: https://sop.sheincorp.cn
+syncUrl: /sop-api/fsp/sync-inventory
+syncUrl2: /open-api/material/in-inventory
+
+openKeyId: 1FFEF58CF10E484EA0D3FF69680E3E0A
+secretKey: 77520E24AD234EDF9E9A80CD78462277
+
+
+#定时器  0 0 3 * * ? 每天3点执行  0/2 * * * * ?
+schedule:
+  cron: 0 0 3 * * ?
+
+# MyBatis配置
+#mybatis:
+#  # 搜索指定包别名
+#  typeAliasesPackage: com.by.**.bean
+#  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+#  mapperLocations: classpath*:mapper/**/*Mapper.xml
+#  # 加载全局的配置文件（没有可注释掉或删除）
+#  #configLocation: classpath:mybatis/mybatis-config.xml

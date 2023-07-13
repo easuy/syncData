@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+ 
+<generatorConfiguration>
+ 
+    <!--<properties resource="jdbc.properties"></properties>-->
+    <!--数据库驱动包位置-->
+    <classPathEntry location="H:\门户网站\jc-scanner-master\src\main\resources\lib\sqljdbc4-4.0.jar" />
+ 
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+ 
+        <!--数据库URL、用户名、密码-->
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://39.108.157.60:9090;DatabaseName=ThssErp" userId="th" password="th123456789">
+        </jdbcConnection>
+ 
+ 
+        <!--生成模型包的位置 -->
+        <javaModelGenerator targetPackage="com.by.generator.bean"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+ 
+        <!--生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+ 
+        <!--生成映射dao（Mapper）的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.by.generator.dao" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+ 
+        <!--需要生成那些数据库（更改tableName和domainObjectName）-->
+        <table tableName="cpjcdxmd" domainObjectName="cpjcdxmd" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false"                enableSelectByExample="false" selectByExampleQueryId="false"  >
+        </table>
+ 
+    </context>
+</generatorConfiguration>
